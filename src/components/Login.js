@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { Background_URL } from "../utils/constants";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -86,10 +87,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/914ad279-199e-4095-9c10-2409dc9e5e1b/web/US-en-20250519-TRIFECTA-perspective_63def194-12b8-4f06-8be7-454980a90dd1_small.jpg"
-          alt="Background-image"
-        />
+        <img src={Background_URL} alt="Background-image" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
