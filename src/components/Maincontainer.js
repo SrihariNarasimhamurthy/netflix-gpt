@@ -5,8 +5,13 @@ import VedioTitle from "./VedioTitle";
 
 const Maincontainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);
+
   if (movies == null) return; //->early retun
-  const mainMovie = movies[0];
+  const filteredMovies = movies.filter(
+    (movie) => movie.original_title === "F1 The Movie"
+  );
+
+  const mainMovie = filteredMovies[0];
 
   const { original_title, overview, id } = mainMovie;
   return (

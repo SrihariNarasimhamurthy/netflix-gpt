@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { lang } from "../utils/languageConstants";
 import openai from "../utils/openAI";
 import { API_Options } from "../utils/constants";
-import { addGptMovieResult, addGptMovieNames } from "../utils/gptSlice";
+import {
+  addGptMovieResult,
+  addGptMovieNames,
+  setLoading,
+} from "../utils/gptSlice";
 
 const GptMovieSearchBar = () => {
   const langKey = useSelector((store) => store.config.lang);
@@ -22,6 +26,7 @@ const GptMovieSearchBar = () => {
   };
 
   const handleGptSearch = async () => {
+    dispatch(setLoading(true));
     const gptQuery =
       "Act as a movie recommendation system and suggest the movies for the query : " +
       searchText.current.value +
@@ -39,6 +44,7 @@ const GptMovieSearchBar = () => {
     } catch (error) {
       console.error("Error:", error);
     }
+    dispatch(setLoading(false));
   };
   return (
     <div className="pt-[55%] md:pt-40 flex justify-center">
