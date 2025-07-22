@@ -8,11 +8,12 @@ const Maincontainer = () => {
 
   if (movies == null) return; //->early retun
   const filteredMovies = movies.filter(
-    (movie) => movie.original_title === "Lilo & Stitch"
+    (movie) => movie.original_title === "Superman"
   );
-
-  const mainMovie = filteredMovies[0];
-  console.log(movies);
+  // console.log(movies);
+  // console.log(filteredMovies);
+  const mainMovie = movies[3];
+  // console.log(mainMovie);
 
   const { original_title, overview, id } = mainMovie;
   return (
