@@ -10,10 +10,11 @@ const Maincontainer = () => {
   const filteredMovies = movies.filter(
     (movie) => movie.original_title === "Superman"
   );
-  // console.log(movies);
+  console.log(movies);
   // console.log(filteredMovies);
   const mainMovie = movies[3];
-  // console.log(mainMovie);
+  if (!mainMovie) return null;
+  console.log(mainMovie);
 
   const { original_title, overview, id } = mainMovie;
   return (
